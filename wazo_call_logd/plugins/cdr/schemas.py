@@ -147,6 +147,7 @@ class CDRSchema(Schema):
     source_user_uuid = fields.UUID()
     tags = fields.List(fields.String(), attribute='marshmallow_tags')
     recordings = fields.Nested('RecordingSchema', many=True, default=[])
+    destination_line_identity = fields.String()
 
     @pre_dump
     def _compute_fields(self, data, **kwargs):
